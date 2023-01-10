@@ -17,14 +17,9 @@ public class BaseClass {
 	public static WebDriver sdriver;
 	public WebDriver driver;
 	public WebDriverUtil wDriverUtil;
-	//@Parameters("browser")
+	
 	@BeforeClass(groups = {"smoke","regression"})
 	public void openBrowser()  {
-//		if (browser.equals("chrome")) {
-//			driver = new ChromeDriver();
-//		} else {
-//			driver = new FirefoxDriver();
-//		}
 		driver = new ChromeDriver();
 		sdriver=driver;
 		wDriverUtil= new WebDriverUtil(driver);
