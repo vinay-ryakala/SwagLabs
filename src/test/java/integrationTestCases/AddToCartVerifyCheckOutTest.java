@@ -11,7 +11,7 @@ import com.epr.manage.POM.HomePage;
 import com.epr.manage.POM.YourInformationPage;
 
 public class AddToCartVerifyCheckOutTest extends BaseClass {
-	@Test
+	@Test(groups = "smoke")
 	public void addToCartAndVerifyCheckOut() {
 		GenrateTestData gtd = new GenrateTestData();
 		HomePage hPage = new HomePage(driver);
@@ -28,7 +28,7 @@ public class AddToCartVerifyCheckOutTest extends BaseClass {
 		Assert.assertEquals(acctualString, expectedString);
 
 	}
-	@Test
+	@Test(groups = "regression")
 	public void getListOfProducts() {
 		HomePage hPage = new HomePage(driver);
 		for (WebElement productName : hPage.getlistOfProducts()){

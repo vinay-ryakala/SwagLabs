@@ -18,7 +18,7 @@ public class BaseClass {
 	public WebDriver driver;
 	public WebDriverUtil wDriverUtil;
 	//@Parameters("browser")
-	@BeforeClass()
+	@BeforeClass(groups = {"smoke","regression"})
 	public void openBrowser()  {
 //		if (browser.equals("chrome")) {
 //			driver = new ChromeDriver();
@@ -32,7 +32,7 @@ public class BaseClass {
 		
 	}
 
-	@BeforeMethod()
+	@BeforeMethod(groups = {"smoke","regression"})
 	public void login() throws IOException, ParseException {
 		ReadDataFromJSON readDataFromJSON= new ReadDataFromJSON();
 		String url = readDataFromJSON.readDataFromJson("url");		
@@ -44,13 +44,13 @@ public class BaseClass {
 		loginPage.login(adminUserName, adminPwd);
 
 	}
-	@AfterMethod()
+	@AfterMethod(groups = {"smoke","regression"})
 	public void logout() {
 		HomePage hPage = new HomePage(driver);
 		hPage.log_out();
 	}
 
-	@AfterClass()
+	@AfterClass(groups = {"smoke","regression"})
 	public void closeBrowser() {
 		driver.close();
 	}
